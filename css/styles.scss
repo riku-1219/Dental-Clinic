@@ -1,0 +1,425 @@
+$main-width:920px;
+$main-color: #6CC6C4;
+$gradient-color: linear-gradient(to top, $main-color, #9BE3E1);
+$sp: 768px;
+$pc: 769px;
+@mixin sp {
+  @media (max-width: ($sp)) {
+    @content;
+  }
+}
+@mixin pc {
+  @media (min-width: ($pc)) {
+    @content;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: Verdana, sans-serif;
+  width: 100%;
+  height: 100%;
+  border-top: solid 8px $main-color;
+  background-color: #F6F6F6;
+  header {
+    width: $main-width;
+    height: 200px;
+    margin: 0 auto;
+    position: relative;
+    margin-bottom: 22px;
+    @include sp {
+      width: 100%;
+      height: 362px;
+    }
+    img {
+      position: absolute;
+      top: 50px;
+      @include sp {
+        top: 0;
+        left: calc((100% - 260px) / 2);
+      }
+    }
+    .headerContent {
+      width: 220px;
+      height: 100px;
+      position: absolute;
+      top: 13px;
+      right: 0;
+      @include sp {
+        top: 13.5%;
+        left: calc((100% - 220px) / 2);
+      }
+      div {
+        font-size: 8px;
+        margin-bottom: 15px;
+        @include sp {
+          margin-bottom: 8px;
+        }
+      }
+      .tel {
+        font-size: 24px;
+        background: url(../img/bgTel.png) left center no-repeat;
+        background-size: 20px 25px;
+        margin: 0;
+        padding-left: 25px;
+        text-align: right;
+        letter-spacing: 1.2px;
+      }
+      .time {
+        font-size: 8px;
+        margin: 8px 0 0 0;
+        text-align: center;
+        width: 222px;
+        height: 28px;
+        line-height: 28px;
+        border: solid 1px #D6D6D6;
+        span {
+          color: #C2573C;
+        }
+      }
+    }
+    .hedderNav {
+      width: $main-width;
+      height: 72px;
+      position: absolute;
+      bottom: 0;
+      background: $gradient-color;
+      border-radius: 8px;
+      overflow: hidden;
+      @include sp {
+        width: 100%;
+        height: 210px;
+      }
+      ul {
+        font-size: 0;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        @include sp {
+          background-color: #F6F6F6;
+        }
+        li {
+          width: 20%;
+          height: 72px;
+          display: inline-block;
+          border: solid 1px #99E1DF;
+          @include sp {
+            width: 50%;
+            height: calc(100% / 3);
+            border-top: none;
+            border-bottom: none;
+            border-right: solid 1px #99E1DF;
+            border-left: solid 1px #99E1DF;
+            border-radius: 8px;
+          }
+          a {
+            display: block;
+            height: 100%;
+            text-align: center;
+            text-decoration: none;
+            color: #ffffff;
+            position: relative;
+            @include sp {
+              background: $gradient-color;
+              border-radius: 8px;
+              overflow: hidden;
+            }
+            &:hover {
+              background: linear-gradient(to bottom, $main-color, #9BE3E1);
+            }
+            p {
+              position: absolute;
+              top: 20px;
+              margin: 0;
+              width: 100%;
+              font-size: 14px;
+              line-height: 18px;
+              &:last-child {
+                top: 40px;
+                font-size: 12px;
+                line-height: 12px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .wrapper {
+    width: $main-width;
+    height: 696px;
+    margin: 0 auto 20px;
+    display: flex;
+    @include sp {
+      width: 100%;
+      height: 1369px;
+      margin: 0;
+      flex-direction: column-reverse;
+    }
+    aside {
+      flex: 1;
+      nav {
+        border: solid 1px $main-color;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        width: 260px;
+        height: 231px;
+        margin-bottom: 20px;
+        overflow: hidden;
+        background: #ffffff;
+        @include sp {
+          width: 96%;
+          margin: 0 auto 20px;
+        }
+        h2 {
+          font-size: 16px;
+          background: $gradient-color;
+          color: #ffffff;
+          margin: 0;
+          height: 42px;
+          line-height: 42px;
+          padding-left: 15px;
+          border-radius: 8px;
+          overflow: hidden;
+        }
+        ul {
+          margin: 0;
+          margin-right: 15px;
+          height: 170px;
+          li {
+            border-bottom: solid 1px $main-color;
+            height: 25%;
+            vertical-align: bottom;
+            a {
+              display: block;
+              text-decoration: none;
+              color: #595959;
+              height: 100%;
+              p {
+                margin: 0;
+                height: 41.5px;
+                width: 100%;
+                line-height: 41.5px;
+                font-size: 14px;
+                font-weight: normal;
+                color: #595959;
+                &:hover {
+                  color: $main-color;
+                }
+              }
+              .lastP {
+                font-weight: bold;
+              }
+            }
+          }
+        }
+      }
+    }
+    main {
+      flex: 2;
+      margin: 0;
+      padding: 0;
+      @include sp {
+        width: 100%;
+        overflow: hidden;
+        margin-bottom: 39px;
+      }
+      img {
+        margin-bottom: 6px;
+        @include sp {
+          margin-left: 10px;
+          max-width: 640px;
+          width: 96%;
+        }
+      }
+      .info-wrapper {
+        width: 640px;
+        height: 410px;
+        background: #ffffff;
+        border-radius: 8px;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        @include sp {
+          width: 96%;
+          height: 100%;
+          margin: 0 auto;
+          position: static;
+        }
+        
+        .text {
+          width: 580px;
+          height: auto;
+          margin: 15px auto 0;
+          border-bottom: dotted 1px #ccc;
+          font-size: 13px;
+          display: flex;
+          position: absolute;
+          padding-bottom: 9px;
+          @include sp {
+            width: 90%;
+            display: block;
+            position: static;
+            overflow: hidden;
+            height: auto;
+            margin-top: 0;
+          }
+          &:nth-of-type(2) {
+            top: 80px;
+            right: 30px;
+            @include sp {
+              margin-top: 20px;
+              height: 120px;
+            }
+          }
+          &:nth-of-type(3) {
+            top: 139px;
+            right: 30px;
+          }
+          &:nth-of-type(4) {
+            top: 200px;
+            right: 30px;
+          }
+          &:nth-of-type(5) {
+            top: 258px;
+            right: 30px;
+          }
+          &:last-child {
+            top: 320px;
+            right: 30px;
+          }
+          time {
+            font-weight: bold;
+            @include sp {
+              display: inline-block;
+              margin-top: 15px;
+            }
+          }
+          p {
+            width: 435px;
+            margin: 0 0 0 auto;
+            @include sp {
+              width: 92%;
+              margin: 15px auto 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  .new-info {
+    width: 600px;
+    padding: 0 20px;
+    h2 {
+      font-size: 16px;
+      line-height: 16px;
+      font-weight: normal;
+      margin: 0;
+      padding: 35px 0 15px;
+      border-bottom: solid 3px #6CC6C4;
+    }
+  }
+  .bottomNav {
+    width: $main-width;
+    height: 30px;
+    margin: 0 auto;
+    background: $main-color;
+    border-radius: 8px;
+    overflow: hidden;
+    @include sp {
+      width: 96%;
+      height: 60px;
+      margin: 0 auto 10px;
+    }
+    ul {
+      margin: 0;
+      height: 30px;
+      font-size: 0;
+      @include sp {
+        height: auto;
+      }
+      li {
+        display: inline-block;
+        width: 120px;
+        height: 100%;
+        position: relative;
+        @include sp {
+          height: 50%;
+        }
+        &:nth-child(2) {
+          width: 98px;
+        }
+        &:nth-child(3) {
+          width: 95px;
+        }
+        &:nth-child(4) {
+          width: 162px;
+        }
+        a {
+          text-decoration: none;
+          color: #ffffff;
+          position: absolute;
+          top: 5px;
+          font-size: 13px;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+  .footerAddress {
+    width: $main-width;
+    height: 50px;
+    margin: 0 auto;
+    border-bottom: solid 2px $main-color;
+    @include sp {
+      width: 100%;
+      height: 69px;
+    }
+    div {
+      height: 100%;
+      line-height: 50px;
+      float: right;
+      font-size: 13px;
+      @include sp {
+        width: 200px;
+        line-height: 23px;
+        text-align: right;
+        padding-right: 15px;
+      }
+      br {
+        @include pc {
+          display: none;
+        }
+      }
+    }
+  }
+  footer {
+    width: $main-width;
+    height: 47px;
+    margin: 0 auto;
+    position: relative;
+    @include sp {
+      width: 100%;
+    }
+    p {
+      text-align: center;
+      font-size: 12px;
+      width: 360px;
+      height: 12px;
+      line-height: 12px;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      position: absolute;
+      margin: auto;
+    }
+  }
+
+}
